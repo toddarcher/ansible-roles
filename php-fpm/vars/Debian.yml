@@ -7,31 +7,39 @@ phpfpm_config: [
 { src: 'redis.ini.j2', dest: '{{ phpfpm_modules_config_root }}/redis.ini' }
 ]
 
-phpfpm_root: '/etc/php5/fpm'
+phpfpm_root: '/etc/php7.1/fpm'
 phpfpm_confdir: '/pool.d'
-phpfpm_service: 'php5-fpm'
+phpfpm_service: 'php7.1-fpm'
 
 phpfpm_pkgs: [
-'php5',
-'php5-fpm',
-'php5-dev',
-'php5-imap',
-'php5-gd',
-'php5-mysql',
-'php5-mcrypt',
-'php5-xmlrpc',
-'php5-curl',
-'php5-intl',
-'php5-redis',
-'php5-memcache'
+'php7.1-fpm',
+'php7.1-common',
+'php7.1-mbstring',
+'php7.1-xmlrpc',
+'php7.1-soap', 
+'php7.1-apcu', 
+'php7.1-smbclient',
+'php7.1-ldap', 
+'php7.1-redis', 
+'php7.1-gd',	 
+'php7.1-xml', 
+'php7.1-intl', 
+'php7.1-json',
+'php7.1-imagick',
+'php7.1-mysql', 
+'php7.1-cli', 
+'php7.1-mcrypt', 
+'php7.1-ldap', 
+'php7.1-zip', 
+'php7.1-curl',
 ]
 
 phpfpm_pkgs_pecl: [
 'lzf',
-'zendopcache-7.0.4'
+'zendopcache-7.0.5'
 ]
 
-phpfpm_modules_config_root: '/etc/php5/mods-available'
+phpfpm_modules_config_root: '/etc/php7.1/mods-available'
 
 phpfpm_modules_enable: [
 'mcrypt',
