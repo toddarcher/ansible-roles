@@ -1,12 +1,12 @@
 ---
 - name: Install PHP
   apt:
-    name: php5-cli
+    name: php7.1-cli
     state: present
 
-- name: Install PHP5-FPM
+- name: Install PHP7.1-FPM
   apt:
-    name: php5-fpm
+    name: php7.1-fpm
     state: present
 
 - name: Include Debian Vars
@@ -26,11 +26,11 @@
   failed_when: "'No valid packages found' in pecl_result.stdout"
 
 - name: Enable PHP modules
-  shell: 'php5enmod {{ item }}'
+  shell: 'php7.1enmod {{ item }}'
   with_items: '{{ phpfpm_modules_enable }}'
 
 - name: Enable PHP modules
   copy:
-    src: '/etc/php5/mods-available/{{ item }}.ini'
-    dest: '/etc/php5/fpm/conf.d/{{ item }}.ini'
+    src: '/etc/php7.1/mods-available/{{ item }}.ini'
+    dest: '/etc/php7.1/fpm/conf.d/{{ item }}.ini'
   with_items: '{{ phpfpm_modules_enable }}'
